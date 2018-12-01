@@ -1,0 +1,32 @@
+<%= form_with(model: toto_list, local: true) do |form| %>
+  <% if toto_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(toto_list.errors.count, "error") %> prohibited this toto_list from being saved:</h2>
+
+      <ul>
+      <% toto_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+ <%= f.text_field :content, placeholder: "New Todo" %>
+ <%= f.submit %>
+<% end %>

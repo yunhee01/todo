@@ -1,0 +1,2 @@
+class TotoList < ApplicationRecord
+end
